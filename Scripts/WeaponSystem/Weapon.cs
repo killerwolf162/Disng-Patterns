@@ -2,16 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon : MonoBehaviour
+public abstract class Weapon : MonoBehaviour
 {
     
-    public virtual void Shoot()
+    public virtual void FireWeapon()
     {
-        // shoot weapon
+        
     }
 
     public virtual void Reload()
     {
-        // reload weapon
+        Debug.Log("Weapon reloading");
     }
+
+    public virtual void Recharge()
+    {
+        Debug.Log("Weapon recharging");
+    }
+
 }

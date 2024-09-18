@@ -1,12 +1,19 @@
-﻿public class ProjectileWeapon : Weapon
+﻿using UnityEngine;
+
+public class ProjectileWeapon : Weapon
 {
-    public override void Shoot()
+
+    public const int ammoCount = 30;
+    public const int reloadSpeed = 10;
+
+    public override void FireWeapon()
     {
-        // Shoot Projectile
+        Debug.Log("Fireing projectile weapon");
     }
 
     public override void Reload()
     {
-        // reload weapon
+        base.Reload();
     }
+
 }
