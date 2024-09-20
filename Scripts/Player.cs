@@ -3,32 +3,42 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour, IStateRunner
+public class Player : MonoBehaviour
 {
-    public ScratchPad SharedData => sharedPad;
-
-    private ScratchPad sharedPad;
-    private Rigidbody rigidbody;
-    private StateMachine stateMachine;
+ 
+    [SerializeField] private ProjectileWeapon projectileWeapon;
+    [SerializeField] private BeamWeapon beamWeapon;
 
     private void Start()
     {
-        sharedPad = new ScratchPad();
-        sharedPad.Set<Rigidbody>("rigidBody", GetComponent<Rigidbody>());
-
-        stateMachine = new StateMachine(this);
-
-        stateMachine.SetState(new IdleState());
+        projectileWeapon.enabled = false;
+        beamWeapon.enabled = false;
     }
 
     private void Update()
     {
-        stateMachine.Update();
+        if(Input.GetKeyDown(KeyCode.T))
+        {
+            SwapToBeamWeapon();
+        }
+
+        if(Input.GetKeyDown(KeyCode.Y))
+        {
+            SwapToProjectileWeapon();
+        }
     }
 
-    private void FixedUpdate()
+    private void SwapToProjectileWeapon()
     {
-        stateMachine.FixedUpdate();
+        Debug.Log("Swapped to projectile weapon");
+        projectileWeapon.enabled = true;
+        beamWeapon.enabled = false;
+    }
+    private void SwapToBeamWeapon()
+    {
+        Debug.Log("Swapped to beam weapon");
+        projectileWeapon.enabled = false;
+        beamWeapon.enabled = true;
     }
 
 }

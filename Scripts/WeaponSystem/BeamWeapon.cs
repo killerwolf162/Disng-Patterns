@@ -13,13 +13,18 @@ public class BeamWeapon : Weapon, IStateRunner
     private ScratchPad sharedPad;
     private StateMachine stateMachine;
 
+    private ShootBeam shootBeam;
+
     private void Start()
     {
+        shootBeam = GetComponent<ShootBeam>();
+
         sharedPad = new ScratchPad();
         sharedPad.Set<float>("ChargeTime", chargeTime);
         sharedPad.Set<float>("TimeToOverHeat", timeToOverHeat);
         sharedPad.Set<float>("OverHeatCoolDown", overHeatCoolDown);
         sharedPad.Set<float>("BeamUpTime", beamUpTime);
+        sharedPad.Set<ShootBeam>("ShootBeam", shootBeam);
 
         stateMachine = new StateMachine(this);
 
