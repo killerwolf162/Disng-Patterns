@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class ObjectPool <T> where T : IPoolable
 {
-    private List<T> _activePool = new List<T>();
-    private List<T> _inactivePool = new List<T>();
+    private List<T> activePool = new List<T>();
+    private List<T> inactivePool = new List<T>();
 
     public T AddNewItemToPool()
     {
         T instance = (T)Activator.CreateInstance(typeof(T));
-        _inactivePool.Add(instance);
+        inactivePool.Add(instance);
         Debug.Log("A new item was added to the pool");
         return instance;
     }
 
     public T RequestObject()
     {
-        if(_inactivePool.Count > 0)
+        if(inactivePool.Count > 0)
         {
-            return ActivateItem(_inactivePool[0]);
+            return ActivateItem(inactivePool[0]);
         }
         return ActivateItem(AddNewItemToPool());
     }
@@ -27,23 +27,23 @@ public class ObjectPool <T> where T : IPoolable
     public T ActivateItem(T item)
     {
         item.OnEnableObject();
-        item.active = true;
-        if(_inactivePool.Contains(item))
+        item.Active = true;
+        if(inactivePool.Contains(item))
         {
-            _inactivePool.Remove(item);
+            inactivePool.Remove(item);
         }
-        _inactivePool.Add(item);
+        inactivePool.Add(item);
         return item;
     }
 
     public void ReturnObjectToPool(T item)
     {
-        if(_activePool.Contains(item))
+        if(activePool.Contains(item))
         {
-            _activePool.Remove(item);
+            activePool.Remove(item);
         }
         item.OnDisableObject();
-        item.active = false;
-        _inactivePool.Add(item);
+        item.Active = false;
+        inactivePool.Add(item);
     }
 }

@@ -1,10 +1,10 @@
 ﻿public abstract class BeamDecorator
 {
 
-    public int damage { get; set; }
-    public BeamDecorator(int _damage)
+    public int Damage { get; set; }
+    public BeamDecorator(int damage)
     {
-        damage = _damage;
+        Damage = damage;
     }
 
     public abstract IBeam Decorate(IBeam beam);

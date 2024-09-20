@@ -1,10 +1,10 @@
 ﻿public abstract class BulletDecorator
 {
 
-    public int damage { get; set; }
-    public BulletDecorator(int _damage)
+    public int Damage { get; set; }
+    public BulletDecorator(int damage)
     {
-        damage = _damage;
+        Damage = damage;
     }
 
     public abstract IBullet Decorate(IBullet bullet);

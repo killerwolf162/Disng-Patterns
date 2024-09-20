@@ -3,23 +3,23 @@ using System.Collections.Generic;
 
 public enum BulletType
 {
-    Fire,
-    Ice,
-    Normal
+    Fire = 1,
+    Ice = 3,
+    Normal = 5
 }
 
 public enum BeamType
 { 
-    Fire,
-    Ice,
-    Normal
+    Fire = 1,
+    Ice = 3,
+    Normal= 5
 }
 
 
 public interface IBullet
 {
-    int damage { get; set; }
-    BulletType bulletTypes { get; set; }
+    int Damage { get; set; }
+    BulletType BulletTypes { get; set; }
 
     void Hit();
     
@@ -27,8 +27,8 @@ public interface IBullet
 
 public interface IBeam
 {
-    int damage { get; set; }
-    BeamType beamTypes { get; set; }
+    int Damage { get; set; }
+    BeamType BeamTypes { get; set; }
 
     void Hit();
 }

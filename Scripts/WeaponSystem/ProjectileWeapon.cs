@@ -13,7 +13,6 @@ public class ProjectileWeapon : Weapon
     public int reloadSpeed = 10;
 
     private DecorateBullet shootBullet;
-
     private ObjectPool<Bullet> bulletPool;
 
     private void Awake()

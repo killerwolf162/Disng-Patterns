@@ -2,16 +2,16 @@
 
 public class Beam : IBeam
 {
-    public int damage { get; set; }
-    public BeamType beamTypes { get; set; } = BeamType.Normal;
+    public int Damage { get; set; }
+    public BeamType BeamTypes { get; set; } = BeamType.Normal;
 
-    public Beam(int _damage)
+    public Beam(int damage)
     {
-        damage = _damage;
+        Damage = damage;
     }
 
     public void Hit()
     {
-        Debug.Log("Do the damage: " + damage + " " + beamTypes);
+        Debug.Log("Do the damage: " + Damage + " " + BeamTypes);
     }
 }

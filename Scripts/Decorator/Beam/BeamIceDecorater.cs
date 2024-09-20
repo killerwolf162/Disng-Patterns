@@ -8,7 +8,7 @@ public class BeamIceDecorater : BeamDecorator
     {
         Debug.Log("Add some ice to it");
         //bullet.bulletTypes |= BulletType.Fire;
-        beam.damage += damage;
+        beam.Damage += Damage;
         return beam;
     }
 

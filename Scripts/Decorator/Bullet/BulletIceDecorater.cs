@@ -8,7 +8,7 @@ public class BulletIceDecorater : BulletDecorator
     {
         Debug.Log("Add some ice to it");
         //bullet.bulletTypes |= BulletType.Ice;
-        bullet.damage += damage;
+        bullet.Damage += Damage;
         return bullet;
     }
 

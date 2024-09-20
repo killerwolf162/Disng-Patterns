@@ -8,7 +8,7 @@ public class BulletFireDecorater : BulletDecorator
     {
         Debug.Log("Add some fire to it");
         //bullet.bulletTypes |= BulletType.Fire;
-        bullet.damage += damage;
+        bullet.Damage += Damage;
         return bullet;
     }
 
